@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width" />
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<title>Cadastrar PC</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-sm bg-light justify-content-center">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <h1><strong>Cadastrar PC</strong></h1>
+    </li>
+  </ul>
+</nav>
+<br />
+
+
+<div class="container">
+	
+	<div class="row">
+		<div class="col-xl">
+			<h4>Cadastre o computador</h4>
+			<br />	
+		</div>
+	</div>
+	
+	
+	<form th:action="@{/salvar}" th:object="${computador}" method="post">
+  		<div class="form-group">
+    		<label for="SistemaOperacional">Sistema Operacional:</label>
+    		<input type="text" class="form-control" id="SistemaOperacional" th:field="*{sistemaOperacional}"></input>
+  		</div>
+  		
+  		<div class="form-group">
+    		<label for="processador">Processador:</label>
+    		<input type="text" class="form-control" id="processador" th:field="*{processador}"></input>
+  		</div>
+  		
+  		<div class="form-group">
+    		<label for="nome">Nome:</label>
+    		<input type="text" class="form-control" id="nome" th:field="*{nomeComputador}"></input>
+  		</div>
+  		
+  		<button type="submit" class="btn btn-primary">Salvar</button>
+  		<a th:href="@{/}" class="btn btn-default">Cancelar</a>
+	
+	</form>
+		
+	<br />
+	<br />		
+</div>
+</body>
+</html>
