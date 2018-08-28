@@ -36,7 +36,8 @@
 	</div>
 	
 	
-	<form th:action="@{/salvar}" th:object="${computador}" method="post">
+	<form th:action="${computador.novo}? @{/salvar} : @{/salvar/{id}(id=${computador.id})}" th:object="${computador}" method="post">
+	<input type="hidden" th:field="*{id}" />
   		<div class="form-group">
     		<label for="SistemaOperacional">Sistema Operacional:</label>
     		<input type="text" class="form-control" id="SistemaOperacional" th:field="*{sistemaOperacional}"></input>
